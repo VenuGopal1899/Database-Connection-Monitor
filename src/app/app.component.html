@@ -1,0 +1,44 @@
+<div style ="max-width: 1200px; margin: 0 auto; padding : 10px 40px">
+<div class="jumbotron vertical-center">
+ <h1 ><b>Database Monitoring System </b></h1>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+    <table class="table table-trapped">
+        <thead class="tsthead">
+            <tr>
+                <th>Environment</th>
+                <th>Idle</th>
+                <th>Active</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let conn of connlist" >
+                <td class="tstdt" ><b>{{conn.connectionserver}}</b></td>
+                <td  class="tstdt">{{conn.idle}}</td>
+                <td  class="tstdt">{{conn.active}}</td>
+                <td class="tstdt">{{conn.total}}</td>
+            </tr>
+       </tbody>
+
+    </table>
+</div>
+
+</div>
+</div>
+
+  <div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-8"> 
+    <canvas id="canvas" width="15px" height="6px"></canvas>
+</div>
+<div class="col-lg-4">
+    <div class="jumbotron vertical-center-thumb">
+    <button class="btn btn-primary" style=" text-align:center; margin:35px 35px; " (click)="refreshfunc($event)">REFRESH</button>
+</div>
+  </div>
+</div>
+  </div>
+</div> 

@@ -1,0 +1,15 @@
+.vertical-center {
+    height:25%;
+    width:100%;
+  
+    text-align: center;  /* align the inline(-block) elements horizontally */
+    font: 0/0 a;         /* remove the gap between inline(-block) elements */
+  }
+
+  .vertical-center-thumb {
+    height:75%;
+    width:100%;
+    margin :0 auto;
+    text-align: center;  /* align the inline(-block) elements horizontally */
+    font: 0/0 a;         /* remove the gap between inline(-block) elements */
+  }
