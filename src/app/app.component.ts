@@ -183,6 +183,13 @@ export class AppComponent implements OnInit {
             fill: false
           }
         ]
+      },
+      options: {
+        legend: {
+          labels: {
+            fontSize: 16
+          }
+        }
       }
     });
   }
@@ -270,6 +277,13 @@ export class AppComponent implements OnInit {
             fill: false
           }
         ]
+      },
+      options: {
+        legend: {
+          labels: {
+            fontSize: 16
+          }
+        }
       }
     });
   }
@@ -357,6 +371,13 @@ export class AppComponent implements OnInit {
             fill: false
           }
         ]
+      },
+      options: {
+        legend: {
+          labels: {
+            fontSize: 16
+          }
+        }
       }
     });
   }
