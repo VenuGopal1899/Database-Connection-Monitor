@@ -1,7 +1,7 @@
 .vertical-center {
     height:25%;
     width:100%;
-  
+
     text-align: center;  /* align the inline(-block) elements horizontally */
     font: 0/0 a;         /* remove the gap between inline(-block) elements */
   }
@@ -12,4 +12,43 @@
     margin :0 auto;
     text-align: center;  /* align the inline(-block) elements horizontally */
     font: 0/0 a;         /* remove the gap between inline(-block) elements */
+  }
+
+  .graph {
+    margin-top: 30px;
+    margin-bottom: 100px;
+  }
+
+  .jumbotron{
+    height: 40px;
+  }
+
+  .jumbotron p{
+    margin-top: -40px;
+  }
+
+  .header{
+    font-size: 38px;
+    margin-left: 15px;
+  }
+
+  label, input, select{
+    margin-right: 5px;
+  }
+
+  .form-group{
+    margin-right: 30px;
+  }
+
+  .filter{
+    margin-left: 25px;
+  }
+
+  .refresh{
+    margin-left: 1230px;
+    margin-top: -70px;
+  }
+
+  .error-msgs span{
+    margin-right: 15px;
   }

@@ -1,44 +1,50 @@
-<div style ="max-width: 1200px; margin: 0 auto; padding : 10px 40px">
-<div class="jumbotron vertical-center">
- <h1 ><b>Database Monitoring System </b></h1>
-</div>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-12">
-    <table class="table table-trapped">
-        <thead class="tsthead">
-            <tr>
-                <th>Environment</th>
-                <th>Idle</th>
-                <th>Active</th>
-                <th>Total</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor = "let conn of connlist" >
-                <td class="tstdt" ><b>{{conn.connectionserver}}</b></td>
-                <td  class="tstdt">{{conn.idle}}</td>
-                <td  class="tstdt">{{conn.active}}</td>
-                <td class="tstdt">{{conn.total}}</td>
-            </tr>
-       </tbody>
+<div style ="background-color: primary; max-width: 1400px; margin: 0 auto; padding : 10px 40px">
+    <div class="jumbotron display-4 bg-secondary text-white text-center"><p>Database Monitoring System</p></div>
 
-    </table>
+    <span class="filter-graph container d-inline">
+        <form #connectionForm="ngForm" class="form-inline" [formGroup]="timeLine" (ngSubmit)="filterfunc()">
+            <div class="form-group">
+                <label for="startDate">From (00:00 AM)</label>
+                <input type="date" formControlName="fromDate" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="endDate">To (11:59 PM)</label>
+                <input type="date" formControlName="toDate" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="connection-server">Connection Server</label>
+                <select class="form-control" formControlName="connectionserver" required>
+                    <option>DEV</option>
+                    <option>QA</option>
+                    <option>DEMO</option>
+                    <option>ALL</option>
+                </select>
+            </div>
+            <button type="submit" [disabled]="!timeLine.valid" class="btn btn-primary filter">FILTER</button>
+        </form>
+        <button class="btn btn-primary refresh" (click)="refreshfunc(); connectionForm.resetForm()">REFRESH</button>
+        <div class="error-msgs">
+            <span *ngIf="errDates" class="alert alert-danger text-center" style ="max-width: 393px;">To date can't be less than From date</span>
+            <span *ngIf="fromDateError" class="alert alert-danger text-center" style ="max-width: 393px;">Connection history started from {{userStartDate}}</span>
+            <span *ngIf="toDateError" class="alert alert-danger text-center" style ="max-width: 393px;">Connection history is upto {{userEndDate}}</span>
+        </div>
+    </span>
+    <div class="header container text-left display-4"><b>Dev Database Connections</b></div>
+    <div class="graph" style="width: 100%; overflow-x: auto; overflow-y: hidden">
+        <div [style.height.px]="devGraphLength>1800 ? 570 : 510" [style.width.px]="devGraphLength>1800 ? devGraphLength : 1800">
+            <canvas id="canvas" width="300px" height="80px"></canvas>
+        </div>
+    </div>
+    <div class="header container text-left display-4"><b>QA Database Connections</b></div>
+    <div class="graph" style="width: 100%; overflow-x: auto; overflow-y: hidden">
+        <div [style.height.px]="qaGraphLength>1800 ? 570 : 510" [style.width.px]="qaGraphLength>1800 ? qaGraphLength : 1800">
+            <canvas id="canvas2" width="300px" height="80px"></canvas>
+        </div>
+    </div>
+    <div class="header container text-left display-4"><b>Demo Database Connections</b></div>
+    <div class="graph" style="width: 100%; overflow-x: auto; overflow-y: hidden">
+        <div [style.height.px]="demoGraphLength>1800 ? 570 : 510" [style.width.px]="demoGraphLength>1800 ? demoGraphLength : 1800">
+            <canvas id="canvas3" width="300px" height="80px"></canvas>
+        </div>
+    </div>
 </div>
-
-</div>
-</div>
-
-  <div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-8"> 
-    <canvas id="canvas" width="15px" height="6px"></canvas>
-</div>
-<div class="col-lg-4">
-    <div class="jumbotron vertical-center-thumb">
-    <button class="btn btn-primary" style=" text-align:center; margin:35px 35px; " (click)="refreshfunc($event)">REFRESH</button>
-</div>
-  </div>
-</div>
-  </div>
-</div> 
