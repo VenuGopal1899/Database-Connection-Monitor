@@ -185,6 +185,12 @@ export class AppComponent implements OnInit {
         ]
       },
       options: {
+        title: {
+          display: true,
+          text: 'Dev DB Connections',
+          fontSize: 16,
+          fontColor: '#000'
+        },
         legend: {
           labels: {
             fontSize: 16
@@ -279,6 +285,12 @@ export class AppComponent implements OnInit {
         ]
       },
       options: {
+        title: {
+          display: true,
+          text: 'QA DB Connections',
+          fontSize: 16,
+          fontColor: '#000'
+        },
         legend: {
           labels: {
             fontSize: 16
@@ -373,6 +385,12 @@ export class AppComponent implements OnInit {
         ]
       },
       options: {
+        title: {
+          display: true,
+          text: 'Demo DB Connections',
+          fontSize: 16,
+          fontColor: '#000'
+        },
         legend: {
           labels: {
             fontSize: 16

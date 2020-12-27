@@ -1,48 +1,49 @@
 <div style ="background-color: primary; max-width: 1400px; margin: 0 auto; padding : 10px 40px">
-    <div class="jumbotron display-4 bg-secondary text-white text-center"><p>Database Monitoring System</p></div>
+    <div class="jumbotron bg-light text-center text-dark display-4">
+        <p><b>Database Monitoring System</b></p>
+    </div>
 
-    <span class="filter-graph container d-inline">
-        <form #connectionForm="ngForm" class="form-inline" [formGroup]="timeLine" (ngSubmit)="filterfunc()">
-            <div class="form-group">
-                <label for="startDate">From (00:00 AM)</label>
-                <input type="date" formControlName="fromDate" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label for="endDate">To (11:59 PM)</label>
-                <input type="date" formControlName="toDate" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label for="connection-server">Connection Server</label>
-                <select class="form-control" formControlName="connectionserver" required>
-                    <option>DEV</option>
-                    <option>QA</option>
-                    <option>DEMO</option>
-                    <option>ALL</option>
-                </select>
-            </div>
-            <button type="submit" [disabled]="!timeLine.valid" class="btn btn-primary filter">FILTER</button>
-        </form>
-        <button class="btn btn-primary refresh" (click)="refreshfunc(); connectionForm.resetForm()">REFRESH</button>
+    <span class="container d-inline">
+        <div class="filter-graph container">
+            <form #connectionForm="ngForm" class="form-inline" [formGroup]="timeLine" (ngSubmit)="filterfunc()">
+                <div class="form-group">
+                    <label class="display-4" for="startDate"><b>From (00:00 AM)</b></label>
+                    <input type="date" formControlName="fromDate" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label class="display-4" for="endDate"><b>To (11:59 PM)</b></label>
+                    <input type="date" formControlName="toDate" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label class="display-4" for="connection-server"><b>Connection Server</b></label>
+                    <select class="form-control" formControlName="connectionserver" required>
+                        <option>DEV</option>
+                        <option>QA</option>
+                        <option>DEMO</option>
+                        <option>ALL</option>
+                    </select>
+                </div>
+                <button type="submit" [disabled]="!timeLine.valid" class="btn btn-primary filter">FILTER</button>
+                <button class="btn btn-primary refresh" (click)="refreshfunc(); connectionForm.resetForm()">REFRESH</button>
+            </form>
+        </div>
         <div class="error-msgs">
-            <span *ngIf="errDates" class="alert alert-danger text-center" style ="max-width: 393px;">To date can't be less than From date</span>
+            <span *ngIf="errDates" class="alert alert-danger text-center" style ="max-width: 393px;">To date can't be less than from date</span>
             <span *ngIf="fromDateError" class="alert alert-danger text-center" style ="max-width: 393px;">Connection history started from {{userStartDate}}</span>
             <span *ngIf="toDateError" class="alert alert-danger text-center" style ="max-width: 393px;">Connection history is upto {{userEndDate}}</span>
         </div>
     </span>
-    <div class="header container text-left display-4"><b>Dev Database Connections</b></div>
-    <div class="graph" style="width: 100%; overflow-x: auto; overflow-y: hidden">
+    <div class="graph" style="width: 100%; overflow-x: auto; overflow-y: auto">
         <div [style.height.px]="devGraphLength>1800 ? 570 : 510" [style.width.px]="devGraphLength>1800 ? devGraphLength : 1800">
             <canvas id="canvas" width="300px" height="80px"></canvas>
         </div>
     </div>
-    <div class="header container text-left display-4"><b>QA Database Connections</b></div>
-    <div class="graph" style="width: 100%; overflow-x: auto; overflow-y: hidden">
+    <div class="graph" style="width: 100%; overflow-x: auto; overflow-y: auto">
         <div [style.height.px]="qaGraphLength>1800 ? 570 : 510" [style.width.px]="qaGraphLength>1800 ? qaGraphLength : 1800">
             <canvas id="canvas2" width="300px" height="80px"></canvas>
         </div>
     </div>
-    <div class="header container text-left display-4"><b>Demo Database Connections</b></div>
-    <div class="graph" style="width: 100%; overflow-x: auto; overflow-y: hidden">
+    <div class="graph" style="width: 100%; overflow-x: auto; overflow-y: auto">
         <div [style.height.px]="demoGraphLength>1800 ? 570 : 510" [style.width.px]="demoGraphLength>1800 ? demoGraphLength : 1800">
             <canvas id="canvas3" width="300px" height="80px"></canvas>
         </div>

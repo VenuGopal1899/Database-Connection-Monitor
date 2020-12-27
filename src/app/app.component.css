@@ -1,54 +1,46 @@
-.vertical-center {
-    height:25%;
-    width:100%;
+.graph {
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
 
-    text-align: center;  /* align the inline(-block) elements horizontally */
-    font: 0/0 a;         /* remove the gap between inline(-block) elements */
-  }
+.jumbotron{
+  height: 20px;
+  border: 1px solid black;
+  border-radius: 20px;
+}
 
-  .vertical-center-thumb {
-    height:75%;
-    width:100%;
-    margin :0 auto;
-    text-align: center;  /* align the inline(-block) elements horizontally */
-    font: 0/0 a;         /* remove the gap between inline(-block) elements */
-  }
+.jumbotron p{
+  margin-top: -30px;
+  font-size: 40px;
+}
 
-  .graph {
-    margin-top: 30px;
-    margin-bottom: 100px;
-  }
+label{
+  font-size: 18px;
+}
 
-  .jumbotron{
-    height: 40px;
-  }
+label, input, select{
+  margin-right: 12px;
+}
 
-  .jumbotron p{
-    margin-top: -40px;
-  }
+.form-group{
+  margin-right: 30px;
+}
 
-  .header{
-    font-size: 38px;
-    margin-left: 15px;
-  }
+.filter{
+  margin-left: 85px;
+}
 
-  label, input, select{
-    margin-right: 5px;
-  }
+.filter-graph{
+  margin-left: 35px;
+}
 
-  .form-group{
-    margin-right: 30px;
-  }
+.refresh{
+  margin-left: 1130px;
+  margin-top: -38px;
+}
 
-  .filter{
-    margin-left: 25px;
-  }
-
-  .refresh{
-    margin-left: 1230px;
-    margin-top: -70px;
-  }
-
-  .error-msgs span{
-    margin-right: 15px;
-  }
+.error-msgs span{
+  margin-top: 15px;
+  position: absolute;
+  margin-left: 48px;
+}
