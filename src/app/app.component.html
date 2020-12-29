@@ -4,7 +4,7 @@
     </div>
 
     <span class="container d-inline">
-        <div class="filter-graph container">
+        <div class="filter-graph">
             <form #connectionForm="ngForm" class="form-inline" [formGroup]="timeLine" (ngSubmit)="filterfunc()">
                 <div class="form-group">
                     <label class="display-4" for="startDate"><b>From (00:00 AM)</b></label>
@@ -15,8 +15,9 @@
                     <input type="date" formControlName="toDate" class="form-control" required>
                 </div>
                 <div class="form-group">
-                    <label class="display-4" for="connection-server"><b>Connection Server</b></label>
-                    <select class="form-control" formControlName="connectionserver" required>
+                    <label class="display-4" for="connection-server"><b>Environment</b></label>
+                    <select name="environment" id="environment" [(ngModel)]="environment" class="form-control" formControlName="connectionserver" required>
+                        <option [ngValue]="null" disabled selected hidden>Select Environment</option>
                         <option>DEV</option>
                         <option>QA</option>
                         <option>DEMO</option>

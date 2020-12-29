@@ -25,6 +25,7 @@ export class AppComponent implements OnInit {
   chart: [];
   chart2: [];
   chart3: [];
+  environment =  null;
   startDate: any;
   endDate: any;
   userStartDate: any;
@@ -423,14 +424,20 @@ export class AppComponent implements OnInit {
   }
 
   refreshfunc() {
-      // this.connectservice.getConnectionHistory().subscribe(res => {
-      //   const result = [];
-      //   for(var i in res){
-      //     result.push(res[i]);
-      //   }
+    // For api connection, uncomment below lines
+    // this.connectservice.getConnectionHistory().subscribe(res => {
+    //   const result = [];
+    //   for(var i in res){
+    //     result.push(res[i]);
+    //   }
+      // this.totalConnectionsList = result;
+      // var s = new Date(Date.parse(result[0].time));
+      // var e = new Date(Date.parse(result[result.length-1].time));
         this.errDates = false;
         this.fromDateError = false;
         this.toDateError = false;
+
+        // For api connection, comment below 3 lines
         this.totalConnectionsList = tempResult;
         var s = new Date(Date.parse(tempResult[0].time));
         var e = new Date(Date.parse(tempResult[tempResult.length-1].time));

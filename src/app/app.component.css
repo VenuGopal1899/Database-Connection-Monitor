@@ -26,16 +26,15 @@ label, input, select{
   margin-right: 30px;
 }
 
-.filter{
-  margin-left: 85px;
+#environment{
+  width: 190px;
 }
-
 .filter-graph{
   margin-left: 35px;
 }
 
 .refresh{
-  margin-left: 1130px;
+  margin-left: 1100px;
   margin-top: -38px;
 }
 
