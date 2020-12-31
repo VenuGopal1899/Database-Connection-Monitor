@@ -4,7 +4,7 @@ import { ConnectionVo } from 'src/model/connection';
 import { HttpParams } from '@angular/common/http';
 import { Chart } from 'chart.js';
 import { variable } from '@angular/compiler/src/output/output_ast';
-import { tempResult } from '../../model/tempResult';
+// import { tempResult } from '../../model/tempResult';
 import { month } from '../../model/month';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
@@ -422,31 +422,31 @@ export class HomeComponent implements OnInit {
   }
 
   refreshfunc() {
-    // For api connection, uncomment below lines
-    // this.connectservice.getConnectionHistory().subscribe(res => {
-    //   const result = [];
-    //   for(var i in res){
-    //     result.push(res[i]);
-    //   }
-      // this.totalConnectionsList = result;
-      // var s = new Date(Date.parse(result[0].time));
-      // var e = new Date(Date.parse(result[result.length-1].time));
-        this.errDates = false;
-        this.fromDateError = false;
-        this.toDateError = false;
+    // For temporary connection, uncomment below 8 lines
+    this.connectservice.getConnectionHistory().subscribe(res => {
+      const result = [];
+      for(var i in res){
+        result.push(res[i]);
+      }
+      this.totalConnectionsList = result;
+      var s = new Date(Date.parse(result[0].time));
+      var e = new Date(Date.parse(result[result.length-1].time));
+      this.errDates = false;
+      this.fromDateError = false;
+      this.toDateError = false;
 
-        // For api connection, comment below 3 lines
-        this.totalConnectionsList = tempResult;
-        var s = new Date(Date.parse(tempResult[0].time));
-        var e = new Date(Date.parse(tempResult[tempResult.length-1].time));
-        var cs = 'ALL';
+      // For temporary connection, comment below 3 lines
+      // this.totalConnectionsList = tempResult;
+      // var s = new Date(Date.parse(tempResult[0].time));
+      // var e = new Date(Date.parse(tempResult[tempResult.length-1].time));
+      var cs = 'ALL';
 
-        this.userStartDate = `${s.getDate()}-${s.getMonth()+1}-${s.getFullYear()}`;
-        this.userEndDate = `${e.getDate()}-${e.getMonth()+1}-${e.getFullYear()}`;
-        this.startDate = `${s.getFullYear()}-${s.getMonth()+1}-${s.getDate()}`;
-        this.endDate = `${e.getFullYear()}-${e.getMonth()+1}-${e.getDate()}`;
+      this.userStartDate = `${s.getDate()}-${s.getMonth()+1}-${s.getFullYear()}`;
+      this.userEndDate = `${e.getDate()}-${e.getMonth()+1}-${e.getFullYear()}`;
+      this.startDate = `${s.getFullYear()}-${s.getMonth()+1}-${s.getDate()}`;
+      this.endDate = `${e.getFullYear()}-${e.getMonth()+1}-${e.getDate()}`;
 
-        this.updateConnectionsList(this.totalConnectionsList, this.startDate, this.endDate, cs);
-    // });
+      this.updateConnectionsList(this.totalConnectionsList, this.startDate, this.endDate, cs);
+    });
   }
 }
