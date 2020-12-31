@@ -1,0 +1,11 @@
+<div class="container container-fluid text-right">
+    <div class="buttons">
+        <button class="btn btn-primary refresh" (click)="refreshfunc()">Refresh</button>
+        <button class="btn btn-primary return"><a class="text-white" routerLink="/home" routerLinkActive="active">Return</a></button>
+    </div>
+</div>
+<br>
+<div *ngIf="loading" class="loading display-4 container text-center">Loading Graphs...</div>
+<div class="plot">
+    <div id="container" style="width: 910px; height: 650px; margin: 0 auto"></div>
+</div>

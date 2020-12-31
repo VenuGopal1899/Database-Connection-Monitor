@@ -1,0 +1,20 @@
+.container{
+    margin-top: -20px;
+}
+.header{
+    font-size: 36px;
+    margin-left: 340px;
+}
+.return a{
+    text-decoration: none;
+}
+.refresh{
+    margin-right: 20px;
+}
+.loading{
+    margin-top: 150px;
+}
+.buttons{
+    margin-left: 1000px;
+    margin-right: -100px;
+}

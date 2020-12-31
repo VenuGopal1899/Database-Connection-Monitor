@@ -28,12 +28,15 @@ export class ConnectionService {
     }
 
     errorHandler(error: HttpErrorResponse) {
-      console.log('error is ', error);
       return throwError(error.message || "server error.");
     }
 
     getConnectionHistory(){
       return this.http.get('http://localhost:6664/gethistory');
+    }
+
+    getDrillDownData(){
+      return this.http.get('http://localhost:6664/levelGraph');
     }
 }
 

@@ -1,0 +1,47 @@
+<span class="container d-inline">
+    <div class="filter-graph">
+        <form #connectionForm="ngForm" class="form-inline" [formGroup]="timeLine" (ngSubmit)="filterfunc()">
+            <div class="form-group">
+                <label class="display-4" for="startDate"><b>From (00:00 AM)</b></label>
+                <input type="date" formControlName="fromDate" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label class="display-4" for="endDate"><b>To (11:59 PM)</b></label>
+                <input type="date" formControlName="toDate" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label class="display-4" for="connection-server"><b>Environment</b></label>
+                <select name="environment" id="environment" [(ngModel)]="environment" class="form-control" formControlName="connectionserver" required>
+                    <option [ngValue]="null" disabled selected hidden>Select Environment</option>
+                    <option>DEV</option>
+                    <option>QA</option>
+                    <option>DEMO</option>
+                    <option>ALL</option>
+                </select>
+            </div>
+            <button type="submit" [disabled]="!timeLine.valid" class="btn btn-primary filter">FILTER</button>
+            <button class="btn btn-primary refresh" (click)="refreshfunc(); connectionForm.resetForm()">REFRESH</button>
+            <button class="btn btn-primary drill-down" (click)="connectionForm.resetForm()"><a class="text-white" routerLink="/drilldown" routerLinkActive="active">Drill-Down</a></button>
+        </form>
+    </div>
+    <div class="error-msgs">
+        <span *ngIf="errDates" class="alert alert-danger text-center" style ="max-width: 393px;">To date can't be less than from date</span>
+        <span *ngIf="fromDateError" class="alert alert-danger text-center" style ="max-width: 393px;">Connection history started from {{userStartDate}}</span>
+        <span *ngIf="toDateError" class="alert alert-danger text-center" style ="max-width: 393px;">Connection history is upto {{userEndDate}}</span>
+    </div>
+</span>
+<div class="graph" style="width: 100%; overflow-x: auto; overflow-y: auto">
+    <div [style.height.px]="devGraphLength>1800 ? 570 : 510" [style.width.px]="devGraphLength>1800 ? devGraphLength : 1800">
+        <canvas id="canvas" width="300px" height="80px"></canvas>
+    </div>
+</div>
+<div class="graph" style="width: 100%; overflow-x: auto; overflow-y: auto">
+    <div [style.height.px]="qaGraphLength>1800 ? 570 : 510" [style.width.px]="qaGraphLength>1800 ? qaGraphLength : 1800">
+        <canvas id="canvas2" width="300px" height="80px"></canvas>
+    </div>
+</div>
+<div class="graph" style="width: 100%; overflow-x: auto; overflow-y: auto">
+    <div [style.height.px]="demoGraphLength>1800 ? 570 : 510" [style.width.px]="demoGraphLength>1800 ? demoGraphLength : 1800">
+        <canvas id="canvas3" width="300px" height="80px"></canvas>
+    </div>
+</div>

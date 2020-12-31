@@ -1,0 +1,44 @@
+.graph {
+    margin-top: 50px;
+    margin-bottom: 100px;
+    margin-left: 30px;
+  }
+
+  label{
+    font-size: 18px;
+  }
+
+  label, input, select{
+    margin-right: 12px;
+  }
+
+  .form-group{
+    margin-right: 10px;
+  }
+
+  #environment{
+    width: 190px;
+  }
+  .filter-graph{
+    margin-left: 85px;
+  }
+
+  .refresh{
+    margin-left: 1030px;
+    margin-top: -38px;
+  }
+
+  .drill-down{
+    margin-left: 30px;
+    margin-top: -38px;
+  }
+
+  .drill-down a{
+    text-decoration: none;
+  }
+
+  .error-msgs span{
+    margin-top: 15px;
+    position: absolute;
+    margin-left: 48px;
+  }

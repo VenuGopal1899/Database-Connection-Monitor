@@ -5,9 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ConnectionService } from '../services/connection.service';
+import { HomeComponent } from './home/home.component';
+import { DrillDownComponent } from './drill-down/drill-down.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    DrillDownComponent
   ],
   imports: [
     BrowserModule,

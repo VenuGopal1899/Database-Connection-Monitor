@@ -1,45 +1,10 @@
-.graph {
-  margin-top: 50px;
-  margin-bottom: 100px;
-}
-
 .jumbotron{
-  height: 20px;
-  border: 1px solid black;
-  border-radius: 20px;
+    height: 20px !important;
+    border-bottom: 1px solid black;
+    border-radius: 20px;
 }
 
 .jumbotron p{
-  margin-top: -30px;
-  font-size: 40px;
-}
-
-label{
-  font-size: 18px;
-}
-
-label, input, select{
-  margin-right: 12px;
-}
-
-.form-group{
-  margin-right: 30px;
-}
-
-#environment{
-  width: 190px;
-}
-.filter-graph{
-  margin-left: 35px;
-}
-
-.refresh{
-  margin-left: 1100px;
-  margin-top: -38px;
-}
-
-.error-msgs span{
-  margin-top: 15px;
-  position: absolute;
-  margin-left: 48px;
+    margin-top: -30px;
+    font-size: 40px;
 }
