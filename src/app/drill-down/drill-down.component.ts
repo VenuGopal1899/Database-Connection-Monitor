@@ -11,11 +11,6 @@ Drilldown(Highcharts);
   styleUrls: ['./drill-down.component.css']
 })
 export class DrillDownComponent implements OnInit {
-
-    animalsList =  [{name: 'Cats', y: 4, drilldown: '3level'},['Dogs', 2],['Cows', 1],['Sheep', 2],['Pigs', 1]];
-    fruitsList = [['Apples', 4],['Oranges', 2]];
-    carsList = [['Toyota', 4],['Opel', 2],['Volkswagen', 2]];
-
     devIdleCount = 0;
     qaIdleCount = 0;
     demoIdleCount = 0;
@@ -32,6 +27,7 @@ export class DrillDownComponent implements OnInit {
     expList = [];
     combinedArr = [];
     loading: boolean = true;
+    loader: boolean = true;
 
 
   constructor( private connectservice: ConnectionService ) { }
@@ -42,7 +38,9 @@ export class DrillDownComponent implements OnInit {
   }
 
   refreshfunc(){
+    this.loader = true;
     this.connectservice.getDrillDownData().subscribe( res => {
+        this.loader = false;
         console.log(res, 'res');
         this.devIdleCount = 0;
         this.qaIdleCount = 0;
