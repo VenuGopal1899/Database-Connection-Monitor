@@ -19,9 +19,9 @@
                     <option>ALL</option>
                 </select>
             </div>
-            <button type="submit" [disabled]="!timeLine.valid" class="btn btn-primary filter">FILTER</button>
-            <button class="btn btn-primary refresh" (click)="refreshfunc(); connectionForm.resetForm()">REFRESH</button>
-            <button class="btn btn-primary drill-down" (click)="connectionForm.resetForm()"><a class="text-white" routerLink="/drilldown" routerLinkActive="active">Drill-Down</a></button>
+            <button type="submit" [disabled]="!timeLine.valid" class="btn btn-primary filter">Submit</button>
+            <button class="btn btn-primary refresh" (click)="refreshfunc(); connectionForm.resetForm()">Refresh</button>
+            <button class="btn btn-primary drill-down" (click)="connectionForm.resetForm()"><a class="text-white" routerLink="/drilldown" routerLinkActive="active">Live Connections</a></button>
         </form>
     </div>
     <div class="error-msgs">

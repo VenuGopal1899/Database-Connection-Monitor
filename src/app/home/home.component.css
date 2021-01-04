@@ -24,13 +24,12 @@
   }
 
   .refresh{
-    margin-left: 1030px;
-    margin-top: -38px;
+    z-index: 1;
+    margin-left: 30px;
   }
 
   .drill-down{
     margin-left: 30px;
-    margin-top: -38px;
   }
 
   .drill-down a{

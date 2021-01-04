@@ -113,7 +113,9 @@ export class HomeComponent implements OnInit {
         if(element.connectionserver === 'DEV'){
           var exp = Date.parse(element.time);
           var newExpDate = new Date(exp);
-          var temp = `${newExpDate.getFullYear()}-${newExpDate.getMonth()+1}-${newExpDate.getDate()}`;
+          var _month = newExpDate.getMonth()+1 < 10 ? '0'+ `${newExpDate.getMonth()+1}` : `${newExpDate.getMonth()+1}`;
+          var _date = newExpDate.getDate() < 10 ? '0' + `${newExpDate.getDate()}` : `${newExpDate.getDate()}`;
+          var temp = `${newExpDate.getFullYear()}-${_month}-${_date}`;
 
           if(date1 === temp){
             this.devTotalList.push(element.total);
@@ -130,7 +132,9 @@ export class HomeComponent implements OnInit {
         if(element.connectionserver === 'DEV'){
           var exp = Date.parse(element.time);
           var newExpDate = new Date(exp);
-          var temp = `${newExpDate.getFullYear()}-${newExpDate.getMonth()+1}-${newExpDate.getDate()}`;
+          var _month = newExpDate.getMonth()+1 < 10 ? '0'+ `${newExpDate.getMonth()+1}` : `${newExpDate.getMonth()+1}`;
+          var _date = newExpDate.getDate() < 10 ? '0' + `${newExpDate.getDate()}` : `${newExpDate.getDate()}`;
+          var temp = `${newExpDate.getFullYear()}-${_month}-${_date}`;
 
           if(date1 <= temp && temp <= date2){
             this.devTotalList.push(element.total);
@@ -164,19 +168,19 @@ export class HomeComponent implements OnInit {
         labels : this.devTimeLabels,
         datasets : [
           {
-            label: 'Dev Idle',
+            label: 'Idle',
             data: this.devIdleList,
             borderColor: "#3e95cd",
             fill: false
           },
           {
-            label: 'Dev Active',
+            label: 'Active',
             data: this.devActiveList,
             borderColor: "#3cba9f",
             fill: false
           },
           {
-            label: 'Dev Total',
+            label: 'Total',
             data: this.devTotalList,
             borderColor: "#c45850",
             fill: false
@@ -211,8 +215,9 @@ export class HomeComponent implements OnInit {
         if(element.connectionserver === 'QA'){
           var exp = Date.parse(element.time);
           var newExpDate = new Date(exp);
-          var temp = `${newExpDate.getFullYear()}-${newExpDate.getMonth()+1}-${newExpDate.getDate()}`;
-
+          var _month = newExpDate.getMonth()+1 < 10 ? '0'+ `${newExpDate.getMonth()+1}` : `${newExpDate.getMonth()+1}`;
+          var _date = newExpDate.getDate() < 10 ? '0' + `${newExpDate.getDate()}` : `${newExpDate.getDate()}`;
+          var temp = `${newExpDate.getFullYear()}-${_month}-${_date}`;
           if(date1 === temp){
             this.qaTotalList.push(element.total);
             this.qaIdleList.push(element.idle);
@@ -228,7 +233,9 @@ export class HomeComponent implements OnInit {
         if(element.connectionserver === 'QA'){
           var exp = Date.parse(element.time);
           var newExpDate = new Date(exp);
-          var temp = `${newExpDate.getFullYear()}-${newExpDate.getMonth()+1}-${newExpDate.getDate()}`;
+          var _month = newExpDate.getMonth()+1 < 10 ? '0'+ `${newExpDate.getMonth()+1}` : `${newExpDate.getMonth()+1}`;
+          var _date = newExpDate.getDate() < 10 ? '0' + `${newExpDate.getDate()}` : `${newExpDate.getDate()}`;
+          var temp = `${newExpDate.getFullYear()}-${_month}-${_date}`;
 
           if(date1 <= temp && temp <= date2){
             this.qaTotalList.push(element.total);
@@ -264,19 +271,19 @@ export class HomeComponent implements OnInit {
         labels : this.qaTimeLabels,
         datasets : [
           {
-            label: 'QA Idle',
+            label: 'Idle',
             data: this.qaIdleList,
             borderColor: "#3e95cd",
             fill: false
           },
           {
-            label: 'QA Active',
+            label: 'Active',
             data: this.qaActiveList,
             borderColor: "#3cba9f",
             fill: false
           },
           {
-            label: 'QA Total',
+            label: 'Total',
             data: this.qaTotalList,
             borderColor: "#c45850",
             fill: false
@@ -311,7 +318,9 @@ export class HomeComponent implements OnInit {
         if(element.connectionserver === 'DEMO'){
           var exp = Date.parse(element.time);
           var newExpDate = new Date(exp);
-          var temp = `${newExpDate.getFullYear()}-${newExpDate.getMonth()+1}-${newExpDate.getDate()}`;
+          var _month = newExpDate.getMonth()+1 < 10 ? '0'+ `${newExpDate.getMonth()+1}` : `${newExpDate.getMonth()+1}`;
+          var _date = newExpDate.getDate() < 10 ? '0' + `${newExpDate.getDate()}` : `${newExpDate.getDate()}`;
+          var temp = `${newExpDate.getFullYear()}-${_month}-${_date}`;
 
           if(date1 === temp){
             this.demoTotalList.push(element.total);
@@ -328,7 +337,9 @@ export class HomeComponent implements OnInit {
         if(element.connectionserver === 'DEMO'){
           var exp = Date.parse(element.time);
           var newExpDate = new Date(exp);
-          var temp = `${newExpDate.getFullYear()}-${newExpDate.getMonth()+1}-${newExpDate.getDate()}`;
+          var _month = newExpDate.getMonth()+1 < 10 ? '0'+ `${newExpDate.getMonth()+1}` : `${newExpDate.getMonth()+1}`;
+          var _date = newExpDate.getDate() < 10 ? '0' + `${newExpDate.getDate()}` : `${newExpDate.getDate()}`;
+          var temp = `${newExpDate.getFullYear()}-${_month}-${_date}`;
 
           if(date1 <= temp && temp <= date2){
             this.demoTotalList.push(element.total);
@@ -364,19 +375,19 @@ export class HomeComponent implements OnInit {
         labels : this.demoTimeLabels,
         datasets : [
           {
-            label: 'Demo Idle',
+            label: 'Idle',
             data: this.demoIdleList,
             borderColor: "#3e95cd",
             fill: false
           },
           {
-            label: 'Demo Active',
+            label: 'Active',
             data: this.demoActiveList,
             borderColor: "#3cba9f",
             fill: false
           },
           {
-            label: 'Demo Total',
+            label: 'Total',
             data: this.demoTotalList,
             borderColor: "#c45850",
             fill: false
@@ -443,10 +454,12 @@ export class HomeComponent implements OnInit {
 
       this.userStartDate = `${s.getDate()}-${s.getMonth()+1}-${s.getFullYear()}`;
       this.userEndDate = `${e.getDate()}-${e.getMonth()+1}-${e.getFullYear()}`;
-      this.startDate = `${s.getFullYear()}-${s.getMonth()+1}-${s.getDate()}`;
-      this.endDate = `${e.getFullYear()}-${e.getMonth()+1}-${e.getDate()}`;
 
-      this.updateConnectionsList(this.totalConnectionsList, this.startDate, this.endDate, cs);
+      var emonth = e.getMonth()+1 < 10 ? '0' + `${e.getMonth()+1}` : e.getMonth()+1;
+      var edate = e.getDate() < 10 ? '0' + e.getDate() : e.getDate();
+      this.endDate = `${e.getFullYear()}-${emonth}-${edate}`;
+
+      this.updateConnectionsList(this.totalConnectionsList, this.endDate, this.endDate, cs);
     });
   }
 }
