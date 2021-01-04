@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
 import Drilldown from 'highcharts/modules/drilldown';
 import { ConnectionService } from '../../services/connection.service';
-// import { tempResult2 } from '../../model/tempResult2';
+import { tempResult2 } from '../../model/tempResult2';
 Drilldown(Highcharts);
 
 @Component({
@@ -39,9 +39,9 @@ export class DrillDownComponent implements OnInit {
 
   refreshfunc(){
     this.loader = true;
-    this.connectservice.getDrillDownData().subscribe( res => {
+    // this.connectservice.getDrillDownData().subscribe( res => {
         this.loader = false;
-        console.log(res, 'res');
+    //     console.log(res, 'res');
         this.devIdleCount = 0;
         this.qaIdleCount = 0;
         this.demoIdleCount = 0;
@@ -54,12 +54,12 @@ export class DrillDownComponent implements OnInit {
         this.qaSeriesList = [];
         this.demoSeriesList = [];
         this.loading = false;
-        const result = [];
+        // const result = [];
 
-        for(var i in res){
-            result.push(res[i]);
-        }
-        result.forEach((ele,index)=> {
+        // for(var i in res){
+        //     result.push(res[i]);
+        // }
+        tempResult2.forEach((ele,index)=> {
             var id = ele.connectionServer + (index+1).toString();
             var temp = {name: ele.ipAddress, y: ele.idle, drilldown: id}
 
@@ -154,7 +154,8 @@ export class DrillDownComponent implements OnInit {
                 }, {
                     name: 'QA',
                     y: this.qaIdleCount,
-                    drilldown: 'qaIpList'
+                    drilldown: 'qaIpList',
+                    color: 'rgb(212, 84, 84)'
                 }, {
                     name: 'Demo',
                     y: this.demoIdleCount,
@@ -165,6 +166,6 @@ export class DrillDownComponent implements OnInit {
                 series: this.combinedArr
             }
         });
-    });
+    // });
   }
 }

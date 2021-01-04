@@ -4,7 +4,7 @@ import { ConnectionVo } from 'src/model/connection';
 import { HttpParams } from '@angular/common/http';
 import { Chart } from 'chart.js';
 import { variable } from '@angular/compiler/src/output/output_ast';
-// import { tempResult } from '../../model/tempResult';
+import { tempResult } from '../../model/tempResult';
 import { month } from '../../model/month';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
@@ -434,22 +434,23 @@ export class HomeComponent implements OnInit {
 
   refreshfunc() {
     // For temporary connection, uncomment below 8 lines
-    this.connectservice.getConnectionHistory().subscribe(res => {
-      const result = [];
-      for(var i in res){
-        result.push(res[i]);
-      }
-      this.totalConnectionsList = result;
-      var s = new Date(Date.parse(result[0].time));
-      var e = new Date(Date.parse(result[result.length-1].time));
+    // this.connectservice.getConnectionHistory().subscribe(res => {
+    //   const result = [];
+    //   for(var i in res){
+    //     result.push(res[i]);
+    //   }
+    //   this.totalConnectionsList = result;
+    //   var s = new Date(Date.parse(result[0].time));
+    //   var e = new Date(Date.parse(result[result.length-1].time));
       this.errDates = false;
       this.fromDateError = false;
       this.toDateError = false;
 
       // For temporary connection, comment below 3 lines
-      // this.totalConnectionsList = tempResult;
-      // var s = new Date(Date.parse(tempResult[0].time));
-      // var e = new Date(Date.parse(tempResult[tempResult.length-1].time));
+      this.totalConnectionsList = tempResult;
+      var s = new Date(Date.parse(tempResult[0].time));
+      var e = new Date(Date.parse(tempResult[tempResult.length-1].time));
+
       var cs = 'ALL';
 
       this.userStartDate = `${s.getDate()}-${s.getMonth()+1}-${s.getFullYear()}`;
@@ -460,6 +461,6 @@ export class HomeComponent implements OnInit {
       this.endDate = `${e.getFullYear()}-${emonth}-${edate}`;
 
       this.updateConnectionsList(this.totalConnectionsList, this.endDate, this.endDate, cs);
-    });
+    // });
   }
 }
